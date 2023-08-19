@@ -1,31 +1,35 @@
-## Ubuntu 20.04/18.04/16.04  Multi User Remote Desktop Server
+## Ubuntu 20.04 / 18.04 / 16.04  Multi-User Remote Desktop Server
 
-Fully implemented Multi User xrdp
-with xorgxrdp and pulseaudio
-on Ubuntu 20.04/18.04/16.04/kali.
+A fully implemented Multi-User ```xrdp```
+with ```xorgxrdp``` and ```pulseaudio```
+For Ubuntu 20.04/18.04/16.04, but there is an experimental Kali Linux.
+
 Copy/Paste and sound is working.
 Users can re-login in the same session.
-Xfce4, Firefox are pre installed.
 
-# Tags
+```Xfce4``` and ```Firefox``` should be pre-installed.
 
-danielguerra/ubuntu-xrdp:16.04
-danielguerra/ubuntu-xrdp:18.04  or latest
-danielguerra/ubuntu-xrdp:20.04
-danielguerra/ubuntu-xrdp:clean (for development)
+# Docker Tags
 
-and a debian version kali linux (experiment)
-danielguerra/ubuntu-xrdp:kali
+```danielguerra/ubuntu-xrdp:16.04```
+```danielguerra/ubuntu-xrdp:18.04```
+```danielguerra/ubuntu-xrdp:20.04```
+ 
+ Development
+ ```danielguerra/ubuntu-xrdp:clean```
+
+An experimental Debian based Kali Linux 
+```danielguerra/ubuntu-xrdp:kali```
 
 ## Usage
 
 Start the rdp server
-(WARNING: use the --shm-size 1g or firefox/chrome will crash)
+(WARNING: use the ```--shm-size 1g``` or Firefox/Chrome will crash)
 
 ```bash
 docker run -d --name uxrdp --hostname terminalserver --shm-size 1g -p 3389:3389 -p 2222:22 danielguerra/ubuntu-xrdp:20.04
 ```
-*note if you already use a rdp server on 3389 change -p <my-port>:3389
+NOTE: if you already use a RDP server and the port 3389 change -p <my-port>:3389
 	  -p 2222:22 is for ssh access ( ssh -p 2222 ubuntu@<docker-ip> )
 
 Connect with your remote desktop client to the docker server.
